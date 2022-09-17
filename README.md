@@ -2,6 +2,12 @@
 
 Will check battery level every 10 minutes and notify if below 31%
 
+Install acpi & libnotify
+
+```sudo apt-get install acpi```
+
+```sudo apt install libnotify-bin```
+
 Configure cron job 
 ```bash
 crontab -e
