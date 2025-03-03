@@ -17,7 +17,7 @@ ac_power=$(acpi -b|grep -c "Charging")
 if [[ $1 -eq 100 ]]
 then
 export DISPLAY=:0.0 
-notify-send -i "/home/viscar/.battery-notification/battery-full.png" "Battery is full." "Level: $1% ";
+notify-send -i "/home/viscar/Linux-Battery-Notification/battery-full.png" "Battery is full." "Level: $1% ";
 
 fi
 
@@ -26,6 +26,8 @@ fi
 if [[ $ac_power -eq 0 && $1 -lt 31 ]] 
 then
 export DISPLAY=:0.0 
-notify-send -u critical -i "/home/viscar/.battery-notification/battery-low.png" "Battery is Low." "Level: $1% ";
+notify-send -u critical -i "/home/viscar/Linux-Battery-Notification/battery-low.png" "Battery is Low." "Level: $1% ";
 
 fi
+
+#*/10 * * * * sudo -u viscar DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus /home/viscar/Linux-Battery-Notification/battery-notification.sh
