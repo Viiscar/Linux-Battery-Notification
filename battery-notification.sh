@@ -1,6 +1,8 @@
 #!/bin/bash
 
 battery_level=$(acpi -b |cut -d "," -f2| sed 's/%//g') 
+# in fedora
+#battery_level=$(acpi -b |cut -d "," -f2| sed 's/%//g'| sed '1d')
 		 
 set -- $battery_level
 #echo $1
